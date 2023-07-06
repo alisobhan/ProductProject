@@ -30,7 +30,27 @@ namespace ProductProject2
         }
 
         #region Validation
-        
+
+        public void ValidateName(string name)
+        {
+            if (name.Length < MIN_PRODUCTNAME_LENGTH)
+            {
+                throw new Exception("The Product Name should at least be 3 Characters.");
+            }
+        }
+        public void ValidateEmail(string email)
+        {
+            var regex = new Regex(EMAIL_CORRECT_PATTERN);
+
+            if (!regex.IsMatch(email))
+            {
+                throw new Exception("Product Email should be in this format: test@test.com");
+            }
+        }
+        public void ValidatePhone(string phone)
+        {
+
+        }
 
         #endregion
     }
